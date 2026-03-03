@@ -28,7 +28,9 @@
       "settings": {
         "color_scheme": "scheme-5",
         "show_line_separator": false,
-        "show_social": false,
+        "contact_number": "Contact us: 01691 610952",
+        "contact_link": "tel:01691610952",
+        "show_social": true,
         "auto_rotate": false,
         "change_slides_speed": 5,
         "enable_country_selector": false,

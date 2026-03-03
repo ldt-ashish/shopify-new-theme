@@ -6,11 +6,20 @@
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
     assign social_icons = false
   endif
+  if section.settings.contact_number != blank
+    assign show_contact = true
+  endif
+  if section.settings.show_social and social_icons
+    assign show_social_icons = true
+  endif
   if section.settings.enable_country_selector or section.settings.enable_language_selector
     assign language_country_selector = true
   endif
   if section.blocks.size > 0
     assign announcement_bar = true
+  endif
+  if show_social_icons or show_contact or language_country_selector
+    assign has_utilities = true
   endif
 -%}
 
@@ -21,9 +30,17 @@
 <div
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
 >
-  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
-    {%- if section.settings.show_social and social_icons -%}
-      {%- render 'social-icons' -%}
+  <div class="page-width utility-bar__grid{% if announcement_bar and has_utilities %} utility-bar__grid--3-col{% elsif has_utilities %} utility-bar__grid--2-col{% endif %}">
+    {%- if show_contact -%}
+      <div class="utility-bar__contact">
+        {%- if section.settings.contact_link != blank -%}
+          <a href="{{ section.settings.contact_link }}" class="utility-bar__contact-link link link--text">
+        {%- endif -%}
+          <span>{{ section.settings.contact_number | escape }}</span>
+        {%- if section.settings.contact_link != blank -%}
+          </a>
+        {%- endif -%}
+      </div>
     {%- endif -%}
     {%- if section.blocks.size == 1 -%}
       <div
@@ -158,6 +175,11 @@
           {%- endform -%}
         </localization-form>
       {%- endif -%}
+      {%- if show_social_icons -%}
+        <div class="utility-bar__social">
+          {%- render 'social-icons' -%}
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </div>
@@ -198,6 +220,17 @@
       "id": "show_line_separator",
       "default": true,
       "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "text",
+      "id": "contact_number",
+      "default": "Contact us: 01691 610952",
+      "label": "Contact number text"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "Contact link"
     },
     {
       "type": "header",
