@@ -2121,6 +2121,17 @@ input[type='checkbox'] {
   .utility-bar .utility-bar__grid .list-social {
     display: none;
   }
+
+  .utility-bar__contact,
+  .utility-bar__social {
+    display: none !important;
+  }
+
+  .utility-bar__grid.utility-bar__grid--3-col,
+  .utility-bar__grid.utility-bar__grid--2-col {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'announcements';
+  }
 }
 
 .utility-bar .list-social__item .icon {
