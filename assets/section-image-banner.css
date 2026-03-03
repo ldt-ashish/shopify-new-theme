@@ -490,3 +490,83 @@
     color: currentColor;
   }
 }
+
+/* Homepage banner styling inspired by the reference design */
+main#MainContent .shopify-section[id*='__image_banner'] {
+  background: #06215f;
+  padding: 1.2rem;
+}
+
+main#MainContent .shopify-section[id*='__image_banner'] .banner {
+  border: 0.6rem solid #ffffff;
+  box-shadow: inset 0 0 0 0.4rem #0d2b73;
+  overflow: hidden;
+}
+
+main#MainContent .shopify-section[id*='__image_banner'] .banner::after,
+main#MainContent .shopify-section[id*='__image_banner'] .banner__media::after {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.3) 38%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+}
+
+main#MainContent .shopify-section[id*='__image_banner'] .banner__box {
+  max-width: min(82rem, 90vw);
+}
+
+main#MainContent .shopify-section[id*='__image_banner'] .banner__heading {
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(4.8rem, 7vw, 9.4rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.02;
+  text-shadow: 0 0.5rem 1.6rem rgba(0, 0, 0, 0.5);
+}
+
+main#MainContent .shopify-section[id*='__image_banner'] .banner__text {
+  color: #ffffff;
+  font-size: clamp(2.1rem, 3.1vw, 4.7rem);
+  text-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.4);
+}
+
+main#MainContent .shopify-section[id*='__image_banner'] .banner__buttons .button--primary {
+  background-color: #c8a86d;
+  border-color: #c8a86d;
+  color: #ffffff;
+  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  min-width: 20rem;
+}
+
+main#MainContent .shopify-section[id*='__image_banner'] .banner__buttons .button--primary:hover {
+  background-color: #b69862;
+  border-color: #b69862;
+}
+
+@media screen and (max-width: 749px) {
+  main#MainContent .shopify-section[id*='__image_banner'] {
+    padding: 0.8rem;
+  }
+
+  main#MainContent .shopify-section[id*='__image_banner'] .banner {
+    border-width: 0.4rem;
+    box-shadow: inset 0 0 0 0.25rem #0d2b73;
+  }
+
+  main#MainContent .shopify-section[id*='__image_banner'] .banner__heading {
+    font-size: clamp(3.4rem, 10.5vw, 5.2rem);
+  }
+
+  main#MainContent .shopify-section[id*='__image_banner'] .banner__text {
+    font-size: clamp(1.9rem, 6vw, 2.8rem);
+  }
+
+  main#MainContent .shopify-section[id*='__image_banner'] .banner__buttons .button--primary {
+    min-width: 17rem;
+  }
+}

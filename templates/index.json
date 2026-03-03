@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "image_banner": {
@@ -103,7 +94,7 @@
         "heading_L6X6KY": {
           "type": "heading",
           "settings": {
-            "heading": "Luxury Without  Walls",
+            "heading": "Outdoor Decor",
             "heading_size": "h1"
           }
         },
@@ -129,7 +120,7 @@
         "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "middle-right",
-        "desktop_content_alignment": "left",
+        "desktop_content_alignment": "right",
         "show_text_box": false,
         "color_scheme": "scheme-5",
         "stack_images_on_mobile": true,
